@@ -1,21 +1,28 @@
 import type { Metadata } from "next";
-import { Chakra_Petch, IBM_Plex_Mono, Inter } from "next/font/google";
+import { Chakra_Petch, Merriweather, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
-import { cn } from "@/lib/utils";
 
-const inter = Inter({subsets:['latin'],variable:'--font-sans'});
-
-const fontMono = IBM_Plex_Mono({
-  weight: ["400", "700"],
+const fontSans = Chakra_Petch({
   subsets: ["latin"],
-  variable: "--font-mono",
+  variable: "--font-sans",
+  weight: ["400", "500", "600", "700"],
 });
 
-const fontSerifVariable = "--font-serif: Georgia, serif;";
+const fontSerif = Merriweather({
+  subsets: ["latin"],
+  variable: "--font-serif",
+  weight: ["400", "700"],
+});
+
+const fontMono = IBM_Plex_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
+  weight: ["400", "500", "600", "700"],
+});
 
 export const metadata: Metadata = {
   title: "PC Builder",
-  description: "Build your PC",
+  description: "Build your custom PC",
 };
 
 export default function RootLayout({
@@ -24,12 +31,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={cn("h-full", "antialiased", fontMono.variable, "font-sans", inter.variable)}
-      style={{ "--font-serif": "Georgia, serif" } as React.CSSProperties}
-    >
-      <body className="min-h-full flex flex-col">{children}</body>
+    <html lang="en">
+      <body
+        className={`${fontSans.variable} ${fontSerif.variable} ${fontMono.variable} antialiased`}
+      >
+        {children}
+      </body>
     </html>
   );
 }
