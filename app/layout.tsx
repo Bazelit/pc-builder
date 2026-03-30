@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Chakra_Petch, Merriweather, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
+import { Toaster } from "sonner";
+import Header from "@/components/header";
+import { ThemeProvider } from "next-themes";
 
 const fontSans = Chakra_Petch({
   subsets: ["latin"],
@@ -31,11 +34,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${fontSans.variable} ${fontSerif.variable} ${fontMono.variable} antialiased`}
       >
-        {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Header />
+          {children}
+          <Toaster richColors={true} position="bottom-right" />
+        </ThemeProvider>
       </body>
     </html>
   );
