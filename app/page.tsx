@@ -1,4 +1,3 @@
-import { BackgroundRippleEffect } from "@/components/ui/background-ripple-effect";
 import { Button } from "@/components/ui/button";
 import {
   Card,

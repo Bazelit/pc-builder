@@ -5,7 +5,7 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-type tabValue = "dashboard" | "explore" | "builds" | null;
+type tabValue = "dashboard" | "explore" | "builds" | undefined;
 
 export function getTabValue(pathname: string): tabValue {
   if (pathname === "/dashboard" || pathname.startsWith("/dashboard/"))
@@ -16,5 +16,5 @@ export function getTabValue(pathname: string): tabValue {
 
   if (pathname === "/builds" || pathname.startsWith("/builds")) return "builds";
 
-  return null;
+  return undefined;
 }
