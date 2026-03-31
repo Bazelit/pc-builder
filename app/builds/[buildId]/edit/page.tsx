@@ -35,5 +35,4 @@ export default async function EditBuildPage({ params }: Props) {
       <EditBuildForm buildName={build.name} buildComponents={buildComponents} />
     </div>
   );
-  // 6.33
 }

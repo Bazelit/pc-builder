@@ -34,7 +34,7 @@ type Props = {
 
 export function BuildCard({ build, children }: Props) {
   const formattedDate = build.createdAt
-    ? new Intl.DateTimeFormat("en-US", {
+    ? new Intl.DateTimeFormat("ru-RU", {
         month: "short",
         day: "numeric",
         year: "numeric",
@@ -74,7 +74,7 @@ export function BuildCard({ build, children }: Props) {
             className="shrink-0 opacity-0 group-hover:opacity-100 transition-opacity hover:bg-primary/10"
             asChild
           >
-            <Link href={`/builds/${build.id}`}>
+            <Link href={`/builds/${build.id}/edit`}>
               <Pencil className="h-4 w-4" />
               <span className="sr-only">Edit build</span>
             </Link>
@@ -121,7 +121,7 @@ export function BuildCard({ build, children }: Props) {
             <div className="flex items-center gap-1.5">
               <DollarSign className="h-4 w-4 text-primary" />
               <span className="text-2xl font-bold tracking-tight">
-                {new Intl.NumberFormat("en-US", {
+                {new Intl.NumberFormat("ru-RU", {
                   style: "currency",
                   currency: "USD",
                   minimumFractionDigits: 0,

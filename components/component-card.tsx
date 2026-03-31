@@ -26,7 +26,7 @@ export default function ComponentCard({
   onClick 
 }: Props) {
   const formatPrice = (value: number) => {
-    return new Intl.NumberFormat("en-US", {
+    return new Intl.NumberFormat("ru-RU", {
       style: "currency",
       currency: "USD",
       minimumFractionDigits: 0,

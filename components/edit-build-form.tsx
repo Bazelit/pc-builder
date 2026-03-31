@@ -81,7 +81,7 @@ export function EditBuildForm({ buildName, buildComponents }: Props) {
         onOpenChange={setSaveDialogOpen}
         selectedByCategory={selectedByCategory}
         defaultName={buildName}
-        redirectPath="/build"
+        redirectPath="/builds"
       />
     </>
   );
