@@ -12,14 +12,6 @@ export function DeleteBuildButton({ buildId, deleteAction }: Props) {
   const [isPending, startTransition] = useTransition();
 
   const handleClick = () => {
-    if (
-      !confirm(
-        "Are you sure you want to delete this build? This action cannot be undone.",
-      )
-    ) {
-      return;
-    }
-
     const fd = new FormData();
     fd.set("buildId", buildId);
 

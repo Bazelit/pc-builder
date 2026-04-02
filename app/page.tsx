@@ -62,7 +62,7 @@ export default function Home() {
                 className="text-lg px-8"
                 asChild
               >
-                <Link href="/builder">
+                <Link href="/builds/explore">
                   <Monitor className="mr-2 h-5 w-5" />
                   Pre-built Configs
                 </Link>

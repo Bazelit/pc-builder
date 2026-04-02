@@ -11,17 +11,20 @@ import {
 } from "@/components/ui/card";
 import { TypographyH3 } from "@/components/ui/typography";
 import { getMyBuilds } from "@/lib/builds";
-import {
-  Plus,
-  Computer,
-  AlertCircle,
-  Share2,
-  Lock,
-  LockIcon,
-} from "lucide-react";
+import { Plus, Computer, AlertCircle, Share2, LockIcon } from "lucide-react";
 import { redirect } from "next/navigation";
 import Link from "next/link";
 import { deleteBuildAction, setBuildPublicAction } from "./actions";
+import {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 
 export default async function MyBuilds() {
   const session = await auth();
@@ -72,10 +75,31 @@ export default async function MyBuilds() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {builds.map((build) => (
               <BuildCard key={build.id} build={build}>
-                <DeleteBuildButton
-                  buildId={build.id}
-                  deleteAction={deleteBuildAction}
-                />
+                <Dialog>
+                  <DialogTrigger asChild>
+                    <Button variant="destructive">Delete</Button>
+                  </DialogTrigger>
+                  <DialogContent className="sm:max-w-sm">
+                    <DialogHeader>
+                      <DialogTitle>
+                        Are you sure you want
+                        <br /> to delete this build?
+                      </DialogTitle>
+                      <DialogDescription>
+                        This action cannot be undone. This will permanently
+                      </DialogDescription>
+                    </DialogHeader>
+                    <DialogFooter>
+                      <DialogClose asChild>
+                        <Button variant="outline">Cancel</Button>
+                      </DialogClose>
+                      <DeleteBuildButton
+                        buildId={build.id}
+                        deleteAction={deleteBuildAction}
+                      />
+                    </DialogFooter>
+                  </DialogContent>
+                </Dialog>
                 <form action={setBuildPublicAction} className="contents">
                   <input type="hidden" name="buildId" value={build.id} />
                   <input

@@ -4,6 +4,7 @@ import "./globals.css";
 import { Toaster } from "sonner";
 import Header from "@/components/header";
 import { ThemeProvider } from "next-themes";
+import PageTransition from "@/components/page-transition";
 
 const fontSans = Chakra_Petch({
   subsets: ["latin"],
@@ -44,9 +45,11 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <Header />
-          {children}
-          <Toaster richColors={true} position="bottom-right" />
+          <PageTransition>
+            <Header />
+            {children}
+            <Toaster richColors={true} position="bottom-right" />
+          </PageTransition>
         </ThemeProvider>
       </body>
     </html>

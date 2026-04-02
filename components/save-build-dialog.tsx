@@ -79,7 +79,7 @@ export function SaveBuildDialog({
 
   return (
     <Dialog open={open} onOpenChange={handleOpenChange}>
-      <DialogContent>
+      <DialogContent className="max-w-lg">
         <DialogHeader>
           <DialogTitle>Save build</DialogTitle>
           <DialogDescription>Write a name for your build</DialogDescription>
