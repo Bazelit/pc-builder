@@ -2,6 +2,10 @@
 
 A modern web application for building, exploring, and sharing custom PC configurations. Create your perfect PC build by selecting components, calculating costs, and discovering popular builds from the community.
 
+## 📷 Screenshots
+<img width="1326" height="854" alt="Screen Shot 2026-04-02 at 22 14 40" src="https://github.com/user-attachments/assets/3201e465-4ccd-46c2-8b04-4f49882d685f" />
+<img width="1216" height="972" alt="Screen Shot 2026-04-02 at 22 15 49" src="https://github.com/user-attachments/assets/901545a1-22db-4e94-af19-b0ae7bcfea11" />
+
 ## 🎯 Features
 
 - **Build Configuration**: Easily create and manage custom PC builds with support for multiple component types (CPU, GPU, RAM, Motherboard, SSD, PSU, Case)
